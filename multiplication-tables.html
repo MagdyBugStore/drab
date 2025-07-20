@@ -15,49 +15,57 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
             direction: rtl;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
         }
 
         h1 {
             text-align: center;
             color: white;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             margin-bottom: 30px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             animation: fadeInDown 1s ease-out;
         }
 
         .tables-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 0;
+            height: 100vh;
         }
 
         .table-section {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-radius: 0;
+            padding: 20px;
+            box-shadow: none;
             backdrop-filter: blur(10px);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeInUp 0.8s ease-out;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .table-section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            transform: none;
+            box-shadow: none;
         }
 
         .table-title {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             color: #333;
             margin-bottom: 20px;
             font-weight: bold;
@@ -67,25 +75,33 @@
         .multiplication-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
             gap: 15px;
             margin-top: 20px;
+            flex: 1;
+            height: calc(100vh - 150px);
         }
 
         .multiplication-item {
-            background: white;
-            color: #333;
-            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            padding: 0;
             border-radius: 15px;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 3rem;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            border: 2px solid #e0e0e0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            border: 2px solid #34495e;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
         .multiplication-item::before {
@@ -108,37 +124,7 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        .multiplication-item:nth-child(2n) {
-            border-color: #4ecdc4;
-        }
 
-        .multiplication-item:nth-child(3n) {
-            border-color: #45b7d1;
-        }
-
-        .multiplication-item:nth-child(4n) {
-            border-color: #f093fb;
-        }
-
-        .multiplication-item:nth-child(5n) {
-            border-color: #4facfe;
-        }
-
-        .multiplication-item:nth-child(6n) {
-            border-color: #43e97b;
-        }
-
-        .multiplication-item:nth-child(7n) {
-            border-color: #fa709a;
-        }
-
-        .multiplication-item:nth-child(8n) {
-            border-color: #a8edea;
-        }
-
-        .multiplication-item:nth-child(9n) {
-            border-color: #ffecd2;
-        }
 
         @keyframes fadeInDown {
             from {
@@ -175,17 +161,18 @@
         .table-section:nth-child(2) { animation-delay: 0.2s; }
         .table-section:nth-child(3) { animation-delay: 0.3s; }
         .table-section:nth-child(4) { animation-delay: 0.4s; }
+        .table-section:nth-child(5) { animation-delay: 0.5s; }
+        .table-section:nth-child(6) { animation-delay: 0.6s; }
+        .table-section:nth-child(7) { animation-delay: 0.7s; }
+        .table-section:nth-child(8) { animation-delay: 0.8s; }
 
         @media (max-width: 768px) {
-            .tables-container {
-                grid-template-columns: 1fr;
-            }
-            
             .multiplication-grid {
                 grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 1fr);
             }
             
-            h1 {
+            .multiplication-item {
                 font-size: 2rem;
             }
         }
@@ -193,12 +180,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>جداول الضرب</h1>
-        
         <div class="tables-container">
+            <!-- جدول ٢ -->
+            <div class="table-section">
+                <div class="multiplication-grid">
+                    <div class="multiplication-item">٢ × ١</div>
+                    <div class="multiplication-item">٢ × ٢</div>
+                    <div class="multiplication-item">٢ × ٣</div>
+                    <div class="multiplication-item">٢ × ٤</div>
+                    <div class="multiplication-item">٢ × ٥</div>
+                    <div class="multiplication-item">٢ × ٦</div>
+                    <div class="multiplication-item">٢ × ٧</div>
+                    <div class="multiplication-item">٢ × ٨</div>
+                    <div class="multiplication-item">٢ × ٩</div>
+                </div>
+            </div>
+
             <!-- جدول ٣ -->
             <div class="table-section">
-                <h2 class="table-title">جدول ٣</h2>
                 <div class="multiplication-grid">
                     <div class="multiplication-item">٣ × ١</div>
                     <div class="multiplication-item">٣ × ٢</div>
@@ -214,7 +213,6 @@
 
             <!-- جدول ٤ -->
             <div class="table-section">
-                <h2 class="table-title">جدول ٤</h2>
                 <div class="multiplication-grid">
                     <div class="multiplication-item">٤ × ١</div>
                     <div class="multiplication-item">٤ × ٢</div>
@@ -230,7 +228,6 @@
 
             <!-- جدول ٥ -->
             <div class="table-section">
-                <h2 class="table-title">جدول ٥</h2>
                 <div class="multiplication-grid">
                     <div class="multiplication-item">٥ × ١</div>
                     <div class="multiplication-item">٥ × ٢</div>
@@ -246,7 +243,6 @@
 
             <!-- جدول ٦ -->
             <div class="table-section">
-                <h2 class="table-title">جدول ٦</h2>
                 <div class="multiplication-grid">
                     <div class="multiplication-item">٦ × ١</div>
                     <div class="multiplication-item">٦ × ٢</div>
@@ -259,6 +255,51 @@
                     <div class="multiplication-item">٦ × ٩</div>
                 </div>
             </div>
+
+            <!-- جدول ٧ -->
+            <div class="table-section">
+                <div class="multiplication-grid">
+                    <div class="multiplication-item">٧ × ١</div>
+                    <div class="multiplication-item">٧ × ٢</div>
+                    <div class="multiplication-item">٧ × ٣</div>
+                    <div class="multiplication-item">٧ × ٤</div>
+                    <div class="multiplication-item">٧ × ٥</div>
+                    <div class="multiplication-item">٧ × ٦</div>
+                    <div class="multiplication-item">٧ × ٧</div>
+                    <div class="multiplication-item">٧ × ٨</div>
+                    <div class="multiplication-item">٧ × ٩</div>
+                </div>
+            </div>
+
+            <!-- جدول ٨ -->
+            <div class="table-section">
+                <div class="multiplication-grid">
+                    <div class="multiplication-item">٨ × ١</div>
+                    <div class="multiplication-item">٨ × ٢</div>
+                    <div class="multiplication-item">٨ × ٣</div>
+                    <div class="multiplication-item">٨ × ٤</div>
+                    <div class="multiplication-item">٨ × ٥</div>
+                    <div class="multiplication-item">٨ × ٦</div>
+                    <div class="multiplication-item">٨ × ٧</div>
+                    <div class="multiplication-item">٨ × ٨</div>
+                    <div class="multiplication-item">٨ × ٩</div>
+                </div>
+            </div>
+
+            <!-- جدول ٩ -->
+            <div class="table-section">
+                <div class="multiplication-grid">
+                    <div class="multiplication-item">٩ × ١</div>
+                    <div class="multiplication-item">٩ × ٢</div>
+                    <div class="multiplication-item">٩ × ٣</div>
+                    <div class="multiplication-item">٩ × ٤</div>
+                    <div class="multiplication-item">٩ × ٥</div>
+                    <div class="multiplication-item">٩ × ٦</div>
+                    <div class="multiplication-item">٩ × ٧</div>
+                    <div class="multiplication-item">٩ × ٨</div>
+                    <div class="multiplication-item">٩ × ٩</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -266,6 +307,15 @@
         // إضافة تأثيرات تفاعلية إضافية
         document.addEventListener('DOMContentLoaded', function() {
             const items = document.querySelectorAll('.multiplication-item');
+            const tables = document.querySelectorAll('.table-section');
+            let currentTable = 0;
+            
+            // إخفاء جميع الجداول ما عدا الأول
+            tables.forEach((table, index) => {
+                if (index !== 0) {
+                    table.style.display = 'none';
+                }
+            });
             
             items.forEach((item, index) => {
                 // إضافة تأخير للحركة
@@ -278,6 +328,30 @@
                         this.style.animation = '';
                     }, 500);
                 });
+            });
+            
+            // إضافة التنقل بالأسهم
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                    tables[currentTable].style.display = 'none';
+                    
+                    if (e.key === 'ArrowRight') {
+                        currentTable = (currentTable + 1) % tables.length;
+                    } else {
+                        currentTable = (currentTable - 1 + tables.length) % tables.length;
+                    }
+                    
+                    tables[currentTable].style.display = 'flex';
+                }
+            });
+            
+            // إضافة التنقل بالنقر
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('table-section')) {
+                    tables[currentTable].style.display = 'none';
+                    currentTable = (currentTable + 1) % tables.length;
+                    tables[currentTable].style.display = 'flex';
+                }
             });
         });
     </script>
